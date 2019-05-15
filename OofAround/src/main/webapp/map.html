@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>OofAround</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <style>
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+      background-color: #e53935;
+      color: #FFF;
+      padding: 0.5% 0;
+      font-size: 1.1em;
+      border: 0;
+    }
+
+    /*logo da navbar*/
+    .navbar-brand {
+      float: left;
+      min-height: 55px;
+      padding: 0 2px 5px;
+    }
+
+    /*cores da caixa da nav bar que se encontra ativa*/
+    .navbar-inverse .navbar-nav .active a, .navbar-inverse .navbar-nav .active a:focus,
+      .navbar-inverse .navbar-nav .active a:hover {
+        color: #FFF;
+        background-color: #e53935;
+      }
+
+      /*cores das palavras da nav bar*/
+      .navbar-inverse .navbar-nav li a {
+        color: #D5D5D5;
+      }
+
+      /*texto da imagem dos sliders*/
+      .carousel-caption {
+        top: 50%;
+        transform: translateY(-50%);
+        text-transform: uppercase;
+      }
+
+      .btn {
+        font-size: 18px;
+        color: #FFF;
+        padding: 12px 22px;
+        background: #e53935;
+        border: 1px solid #FFF;
+      }
+
+      footer {
+        width: 100%;
+        background-color: #e53935;
+        padding: 0.2%;
+        color: #FFF;
+      }
+
+      /*para estas dimensoes qd redimensionamos, o carousel deixa de mostrar texto e botoes*/
+      @media (max-width: 600px) {
+        .carousel-caption {
+          display: none;
+        }
+      }
+
+      .fa {
+        padding: 20px;
+        font-size: 30px;
+        color: #FFF;
+      }
+
+      .modal .modal-header {
+        background-color: #ff5252;
+      }
+
+      .modal .modal-footer {
+        background-color: #ff5252;
+      }
+
+      #map {
+        height: 100%;
+        zoom: 1;
+      }
+
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#"><img src="img/logo.png"></a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-left">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#percursosRecomendados">Percursos</a></li>
+          <li><a href="#">Mapa</a></li>
+          <li><a href="#ourFooter">Sobre Nós</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"><span class="glyphicon glyphicon-user" data-toggle="modal" data-target="#registerForm"> Registar</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-log-in" data-toggle="modal" data-target="#loginForm"> Login</a></li>
+          </ul>
+      </div>
+    </div>    
+  </nav>
+
+
+
+<!----------------------------------------MODAL LOGIN FORM--------------------------------->
+<div class="modal fade" id="loginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header text-center">
+        <img src="img/logo.png">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <form id="login" name="login">
+    <div class="modal-body mx-3">
+      <div class="md-form mb-5">
+        <label data-error="wrong" data-success="right" for="username">Nome de utilizador ou e-mail:</label>
+        <input type="text" id="username" name="username" class="form-control validate" placeholder="Insira o seu nome de utilizador ou o seu e-mail." required>
+      </div>
+      <br>
+      <div class="md-form mb-4">
+        <label data-error="wrong" data-success="right" for="password">Palavra-passe:</label>
+        <input type="password" id="password" name="password" class="form-control validate" placeholder="Insira a sua palavra-passe." required>
+      </div>
+    </div>
+    <div class="modal-footer d-flex justify-content-center">
+      <button type="submit" class="btn btn-default">Login</button>
+    </div>
+    </form>
+  </div>
+</div>
+</div>
+<!-----------------------------------FINAL DO MODAL LOGIN FORM-------------------------------------------->
+
+<!--------------------------------------MODAL REGISTER FORM------------------------------------------>
+<div class="modal fade" id="registerForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header text-center">
+        <img src="img/logo.png">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <form id="register" name="register">
+    <div class="modal-body mx-3">
+      <div class="md-form mb-5">
+        <label data-error="wrong" data-success="right" for="username">Nome de utilizador:</label>
+        <input type="text" id="username" name="username" class="form-control validate" placeholder="Insira o seu nome de utilizador.">
+      </div>
+      <br>
+      <div class="md-form mb-4">
+        <label data-error="wrong" data-success="right" for="password">Palavra-passe:</label>
+        <input type="text" id="password" name="password" class="form-control validate" placeholder="Insira o seu e-mail.">
+      </div>
+      <br>
+      <div class="md-form mb-4">
+          <label data-error="wrong" data-success="right" for="email">E-mail:</label>
+          <input type="text" id="email" name="email" class="form-control validate" placeholder="Insira a sua palavra-passe.">
+        </div>
+      <br>
+      <div class="md-form mb-4">
+          <label data-error="wrong" data-success="right" for="country">País:</label>
+          <input type="text" id="country" name="country" class="form-control validate">
+        </div>
+        <br>
+        <div class="md-form mb-4">
+            <label data-error="wrong" data-success="right" for="cellphone">Número de telemóvel:</label>
+            <input type="text" id="cellphone" name="cellphone" class="form-control validate" placeholder="Insira o seu número de telemóvel.">
+        </div>
+          <br>
+        <div class="md-form mb-4">
+          <label data-error="wrong" data-success="right" for="profileType">Tipo de perfil:</label>
+          <select id="profileType" name="profileType" class="form-control validate">
+            <option value="true" name="public">Público</option>
+            <option value="false" value="private">Privado</option>
+          </select>
+        </div> 
+    </div>
+    <div class="modal-footer d-flex justify-content-center">
+      <button type="submit" class="btn btn-default">Criar Conta</button>
+    </div>
+    </form>
+  </div>
+</div>
+</div>
+<!---------------------------------FINAL DO MODAL REGISTER FORM------------------------------------>
+<link rel="stylesheet" href="css/map.css">
+<script type="text/javascript" src="js/map.js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?
+key=AIzaSyB3y9irYZCLYgJLtlUpDx1YJrE_UlfU0zc&callback=initMap"></script>
+<div id="map"></div>
+
+
+
+<br><br><br><br><br><br><br><br>
+
+
+<footer id="ourFooter" class="container-fluid text-center">
+  <div class="row">
+    <div class="col-md-4">
+        <h3>QUEM SOMOS?</h3>
+        <br>
+        <h5>Um grupo de 5 estudantes a realizar a cadeira de APDC - Projeto de Engenharia e Inovação.</h5 >
+    </div>
+    <div class="col-md-4">
+        <img class="uh" src="img/equipa.png">
+    </div>
+    <div class="col-md-4">
+        <h3>SIGAM-NOS NAS REDES</h3>
+        <h5>(brevemente)</h5>
+        <br>
+            <a href="#" class="fa fa-facebook"></a>
+            <a href="#" class="fa fa-twitter"></a>
+            <a href="#" class="fa fa-instagram"></a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
