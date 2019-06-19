@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>OofAround</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="./js/profile.js"></script>
+    <style>
+        .img {
+            max-width: 67px;
+            max-height: 67px;
+            border-radius: 50%;
+            margin-right: 4px;
+        }
+
+        .dropdownB {
+            margin-right: 4px;
+            padding: 0.5% 0;
+            font-size: 1.1em;
+            background-color: whitesmoke;
+        }
+
+        .letters {
+            margin-left: 3px;
+            color: #e53935;
+            font-size: 15px;
+        }
+
+        .letters a:hover {
+            background-color: #e53935;
+        }
+        
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .backG {
+            background-color: whitesmoke;
+        }
+
+        .imgL {
+            max-width: 150px;
+            max-height: 150px;
+            border-radius: 50%;
+            margin-bottom: 3px;
+        }
+
+        .marosca {
+            margin-bottom: 3px;
+        }
+
+        .navbar {
+            margin-bottom: 0;
+            border-radius: 0;
+            background-color: #e53935;
+            color: #FFF;
+            padding: 0.5% 0;
+            font-size: 1.1em;
+            border: 0;
+        }
+
+        /*logo da navbar*/
+        .navbar-brand {
+            float: left;
+            min-height: 55px;
+            padding: 0 2px 5px;
+        }
+
+        /*cores da caixa da nav bar que se encontra ativa*/
+        .navbar-inverse .navbar-nav .active a,
+        .navbar-inverse .navbar-nav .active a:focus,
+        .navbar-inverse .navbar-nav .active a:hover {
+            color: #FFF;
+            background-color: #e53935;
+        }
+
+        /*cores das palavras da nav bar*/
+        .navbar-inverse .navbar-nav li a {
+            color: #D5D5D5;
+        }
+
+        /*texto da imagem dos sliders*/
+        .carousel-caption {
+            top: 50%;
+            transform: translateY(-50%);
+            text-transform: uppercase;
+        }
+
+        .btn {
+            font-size: 18px;
+            color: #FFF;
+            padding: 12px 22px;
+            background: #e53935;
+            border: 1px solid #FFF;
+        }
+
+        footer {
+            width: 100%;
+            background-color: #e53935;
+            padding: 0.2%;
+            color: #FFF;
+        }
+
+        /*para estas dimensoes qd redimensionamos, o carousel deixa de mostrar texto e botoes*/
+        @media (max-width: 600px) {
+            .carousel-caption {
+                display: none;
+            }
+        }
+
+        .fa {
+            padding: 20px;
+            font-size: 30px;
+            color: #FFF;
+        }
+
+        .modal .modal-header {
+            background-color: #ff5252;
+        }
+
+        .modal .modal-footer {
+            background-color: #ff5252;
+        }
+    </style>
+</head>
+
+<body class="backG">
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="homepage_logged.html"><img src="img/logo.png"></a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-left">
+                    <li class="active"><a href="homepage_logged.html">Home</a></li>
+                    <li><a href="route.html">Percursos</a></li>
+                    <li><a href="ranking.html">Ranking</a></li>
+                    <li><a href="#ourFooter">Sobre Nós</a></li>
+
+                </ul>
+                <li class="nav navbar-nav navbar-right nav-item dropdown dropleft">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="loginPainel" role="button"
+                        href="#"><img class="img" id="profilePic"></a>
+                    <div class="dropdown-menu dropdownB" aria-labelledby="loginPainel">
+                        <a id="user" class="dropdown-item" style="text-decoration: none" style="color: black"></a>
+                        <div></div>
+                        <a class="dropdown-item letters" style="text-decoration: none" href="https://oofaround.appspot.com/profile.html"
+                            role="button">Perfil</a>
+                        <div></div>
+                        <a class="dropdown-item letters" style="text-decoration: none" href="https://oofaround.appspot.com/settings.html"
+                            role="button">Definições</a>
+                        <div></div>
+                        <a class="dropdown-item letters" style="text-decoration: none" href="https://oofaround.appspot.com/" role="button"
+                            id="logout">Terminar sessão</a>
+                    </div>
+                </li>
+            </div>
+        </div>
+    </nav>
+    <br><br><br><br><br>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div id="profile" class="container-fluid">
+                <img class="imgL center" id="profilePicBig">
+                <input class="marosca" id='fileID' type='file' hidden></input>
+                <button id="upload" value='Upload'>Alterar imagem de perfil</button>
+            </div>
+        </div>
+        <div class="col-md-7">
+            <form>
+                <div class="form-group row">
+                    <label for="staticUsername" class="col-sm-2 col-form-label">Utilizador</label>
+                    <div class="col-sm-10">
+                        <input type="text" id="userC" readonly class="form-control validate">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+                    <div class="col-sm-10">
+                        <input type="text" id="emailC" readonly class="form-control validate">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="staticCountry" class="col-sm-2 col-form-label">País</label>
+                    <div class="col-sm-10">
+                        <input type="text" id="countryC" readonly class="form-control validate">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="staticEmail" class="col-sm-2 col-form-label">Telemóvel</label>
+                    <div class="col-sm-10">
+                        <input type="text" id="teleC" readonly class="form-control validate">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="staticEmail" class="col-sm-2 col-form-label">Tipo de Perfil</label>
+                    <div class="col-sm-10">
+                        <input type="text" id="privacy" readonly class="form-control validate">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <br><br><br>
+
+    <footer id="ourFooter" class="container-fluid text-center">
+        <div class="row">
+            <div class="col-md-4">
+                <img class="uh" src="img/equipa.png">
+            </div>
+            <div class="col-md-4">
+                <h3>SIGAM-NOS NAS REDES</h3>
+                <br>
+                <a href="#" class="fa fa-facebook"></a>
+                <a href="#" class="fa fa-twitter"></a>
+                <a href="#" class="fa fa-instagram"></a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

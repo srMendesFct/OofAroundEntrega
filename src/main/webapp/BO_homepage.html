@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>OofAround</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="./js/BO_homepage.js"></script>
+
+  <style>
+    .backG {
+      background-color: whitesmoke;
+    }
+
+    .tab {
+      float: left;
+      border: 1px solid #ccc;
+      background-color: #f1f1f1;
+      width: 30%;
+      height: 100%;
+    }
+
+    /* Style the buttons that are used to open the tab content */
+    .tab button {
+      display: block;
+      background-color: #e53935;
+      color: white;
+      padding: 22px 16px;
+      width: 100%;
+      border: none;
+      outline: none;
+      text-align: left;
+      cursor: pointer;
+      transition: 0.3s;
+      font-size: 17px;
+    }
+
+    /* Change background color of buttons on hover */
+    .tab button:hover {
+      background-color: rgb(238, 95, 95);
+    }
+
+    /* Create an active/current "tab button" class */
+    .tab button.active {
+      background-color: darkred;
+    }
+
+    /* Style the tab content */
+    .tabcontent {
+      float: left;
+      padding: 0px 12px;
+      border: 1px solid #ccc;
+      width: 70%;
+      border-left: none;
+      height: 100%;
+    }
+
+    * {
+      box-sizing: border-box
+    }
+  </style>
+</head>
+
+<body class="backG">
+
+  <div class="tab">
+    <button class="tablinks" onclick="home()"><img src="img/logo.png"></button>
+    <button class="tablinks" onclick="openCity(event, 'Utilizadores')">Utilizadores</button>
+    <button class="tablinks" onclick="openCity(event, 'Percursos')">Percursos</button>
+    <button class="tablinks" onclick="openCity(event, 'Pontos de Interesse')">Pontos de Interesse</button>
+    <button class="tablinks" onclick="openCity(event, 'Cupões')">Cupões</button>
+    <button class="tablinks" onclick="openCity(event, 'Definições')">Definições</button>
+    <button class="tablinks" onclick="openCity(event, 'Suporte')">Suporte</button>
+    <button class="tablinks" onclick="openCity(event, 'Terminar sessão')">Terminar sessão</button>
+  </div>
+
+  <div id="Utilizadores" class="tabcontent">
+    <h3>Utilizadores</h3>
+    <p>London is the capital city of England.</p>
+  </div>
+
+  <div id="Percursos" class="tabcontent">
+    <h3>Percursos</h3>
+    <p>Paris is the capital of France.</p>
+  </div>
+
+  <div id="Pontos de Interesse" class="tabcontent">
+    <h3>Pontos de Interesse</h3>
+    <p>Tokyo is the capital of Japan.</p>
+  </div>
+
+  <div id="Cupões" class="tabcontent">
+    <h3>Cupões</h3>
+    <p>Tokyo is the capital of Japan.</p>
+  </div>
+
+  <div id="Definições" class="tabcontent">
+    <h3>Definições</h3>
+    <p>Tokyo is the capital of Japan.</p>
+  </div>
+
+  <div id="Suporte" class="tabcontent">
+      <h3>Suporte</h3>
+      <p>Tokyo is the capital of Japan.</p>
+    </div>
+
+  <div id="Terminar sessão" class="tabcontent">
+    <h3>Terminar sessão</h3>
+    <p>Tokyo is the capital of Japan.</p>
+  </div>
+
+</body>
+
+</html>

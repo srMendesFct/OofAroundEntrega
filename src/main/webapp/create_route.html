@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>OofAround</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+  <style>
+    #map {
+   height: 500px;
+    }
+    
+    .img {
+            max-width: 67px;
+            max-height: 67px;
+            border-radius: 50%;
+            margin-right: 4px;
+        }
+
+        .dropdownB {
+            margin-right: 4px;
+            padding: 0.5% 0;
+            font-size: 1.1em;
+            background-color: whitesmoke;
+        }
+
+        .letters {
+            margin-left: 3px;
+            color: #e53935;
+            font-size: 15px;
+        }
+
+        .backG {
+            background-color: whitesmoke;
+        }
+
+  .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+      background-color: #e53935;
+      color: #FFF;
+      padding: 0.5% 0;
+      font-size: 1.1em;
+      border: 0;
+    }
+
+    /*logo da navbar*/
+    .navbar-brand {
+      float: left;
+      min-height: 55px;
+      padding: 0 2px 5px;
+    }
+
+    /*cores da caixa da nav bar que se encontra ativa*/
+    .navbar-inverse .navbar-nav .active a,
+    .navbar-inverse .navbar-nav .active a:focus,
+    .navbar-inverse .navbar-nav .active a:hover {
+      color: #FFF;
+      background-color: #e53935;
+    }
+
+    /*cores das palavras da nav bar*/
+    .navbar-inverse .navbar-nav li a {
+      color: #D5D5D5;
+    }
+    
+          .modal .modal-header {
+            background-color: #ff5252;
+        }
+
+        .modal .modal-footer {
+            background-color: #ff5252;
+        }
+
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    
+</style>
+
+
+<body class="backG">
+ <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="homepage_logged.html"><img src="img/logo.png"></a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-left">
+                    <li class="active"><a href="homepage_logged.html">Home</a></li>
+                    <li><a href="route.html">Percursos</a></li>
+                    <li><a href="ranking.html">Ranking</a></li>
+                    <li><a href="#ourFooter">Sobre Nós</a></li>
+
+                </ul>
+                <li class="nav navbar-nav navbar-right nav-item dropdown dropleft">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="loginPainel" role="button"
+                        href="#"><img class="img" id="profilePic"></a>
+                    <div class="dropdown-menu" aria-labelledby="loginPainel">
+                        <a id="user" class=" dropdown-item disabled"></a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="profile.html">Perfil</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="settings.html">Definições</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="https://oofaround.appspot.com/" role="button"
+                            id="logout">Terminar sessão</a>
+                    </div>
+                </li>
+
+            </div>
+        </div>
+    </nav>
+
+
+        <!----------------------------------------MODAL LOGIN FORM--------------------------------->
+  <div class="modal fade" id="loginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header text-center">
+              <img src="img/logo.png">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <form id="login" name="login">
+              <div class="modal-body mx-3">
+                <div class="md-form mb-5">
+                  <label data-error="wrong" data-success="right" for="username">Nome de utilizador:</label>
+                  <input type="text" id="usernameL" name="username" class="form-control validate"
+                    placeholder="Insira o seu nome de utilizador ou email." required>
+                </div>
+                <br>
+                <div class="md-form mb-4">
+                  <label data-error="wrong" data-success="right" for="password">Palavra-passe:</label>
+                  <input type="password" id="passwordL" name="password" class="form-control validate"
+                    placeholder="Insira a sua palavra-passe." required>
+                </div>
+              </div>
+              <div class="modal-footer d-flex justify-content-center">
+                <button type="submit" class="btn btn-default">Login</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-----------------------------------FINAL DO MODAL LOGIN FORM-------------------------------------------->
+    
+    
+    
+      <!--------------------------------------MODAL REGISTER FORM------------------------------------------>
+      <div class="modal fade" id="registerForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header text-center">
+              <img src="img/logo.png">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <form id="register" name="register">
+              <div class="modal-body mx-3">
+                <div class="md-form mb-5">
+                  <label data-error="wrong" data-success="right" for="username">Nome de utilizador:</label>
+                  <input type="text" id="usernameR" name="username" class="form-control validate"
+                    placeholder="Insira o seu nome de utilizador." required>
+                </div>
+                <br>
+                <div class="md-form mb-4">
+                  <label data-error="wrong" data-success="right" for="password">Palavra-passe:</label>
+                  <input type="password" id="passwordR" name="password" class="form-control validate"
+                    placeholder="Insira o seu e-mail." required>
+                </div>
+                <br>
+                <div class="md-form mb-4">
+                  <label data-error="wrong" data-success="right" for="email">E-mail:</label>
+                  <input type="email" id="email" name="email" class="form-control validate"
+                    placeholder="Insira a sua palavra-passe." required>
+                </div>
+                <br>
+                <div class="md-form mb-4">
+                  <label data-error="wrong" data-success="right" for="country">País:</label>
+                  <input type="text" id="country" name="country" class="form-control validate" required>
+                </div>
+                <br>
+                <div class="md-form mb-4">
+                  <label data-error="wrong" data-success="right" for="cellphone">Número de telemóvel:</label>
+                  <input type="text" id="cellphone" name="cellphone" class="form-control validate"
+                    placeholder="Insira o seu número de telemóvel." required>
+                </div>
+                <div class="md-form mb-4">
+                  <label data-error="wrong" data-success="right" for="privacy">Tipo de perfil:</label>
+                  <select id="privacy" name="privacy" class="form-control validate">
+                    <option value="false" name="publicP">Público</option>
+                    <option value="true" name="privateP">Privado</option>
+                  </select>
+                </div>
+              </div>
+              <div class="modal-footer d-flex justify-content-center">
+                <button type="submit" class="btn btn-default">Criar Conta</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!---------------------------------FINAL DO MODAL REGISTER FORM------------------------------------>
+
+      <div id="createCourse" class="container-fluid">
+        <br><br><br><br>
+        <div>
+          <div class="row">
+                <div class="col-lg-9">
+                        <div id="map"></div>
+            </div>
+            <div class="col-xs-2">
+                <form id="courseForm" name="courseForm">
+                    <div class="md-form mb-5">
+                        <label>Nome do percurso:</label>
+                        <input type="text" id="courseName" name="name" class="form-control validate"
+                          placeholder="Insira o nome do seu percurso." required>
+                      </div>
+                      <div class="md-form mb-5">
+                          <label>Descrição do percurso::</label>
+                          <input type="text" id="courseDescription" name="description" class="form-control validate"
+                            placeholder="Insira uma descrição para o seu percurso." required>
+                        </div>
+                        <button type="submit" class="btn btn-default">Criar</button>
+                </form>
+
+                <input type="submit" id="submitF">
+            </div>
+          </div>
+        </div>
+<script type="text/javascript" src="./js/create_route.js"></script>	
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiPZQSt7k2Hhi9YvZnpHl8ibIaL81fb24
+&callback=initMap"></script>
+
+</body>
+</html>

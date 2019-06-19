@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <title>OofAround</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/route.css">
+    <link rel="stylesheet" type="text/css" href="./css/ihover.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="./js/route.js"></script>
+    
+
+    <style>
+
+    .img_profile {
+            max-width: 67px;
+            max-height: 67px;
+            border-radius: 50%;
+            margin-right: 4px;
+        }
+
+        .dropdownB {
+            margin-right: 4px;
+            padding: 0.5% 0;
+            font-size: 1.1em;
+            background-color: whitesmoke;
+        }
+
+        .letters {
+            margin-left: 3px;
+            color: #e53935;
+            font-size: 15px;
+        }
+
+        .backG {
+            background-color: whitesmoke;
+        }
+
+  .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+      background-color: #e53935;
+      color: #FFF;
+      padding: 0.5% 0;
+      font-size: 1.1em;
+      border: 0;
+    }
+
+    /*logo da navbar*/
+    .navbar-brand {
+      float: left;
+      min-height: 55px;
+      padding: 0 2px 5px;
+    }
+
+    /*cores da caixa da nav bar que se encontra ativa*/
+    .navbar-inverse .navbar-nav .active a,
+    .navbar-inverse .navbar-nav .active a:focus,
+    .navbar-inverse .navbar-nav .active a:hover {
+      color: #FFF;
+      background-color: #e53935;
+    }
+
+    /*cores das palavras da nav bar*/
+    .navbar-inverse .navbar-nav li a {
+      color: #D5D5D5;
+    }
+    
+          .modal .modal-header {
+            background-color: #ff5252;
+        }
+
+        .modal .modal-footer {
+            background-color: #ff5252;
+        }
+
+        footer {
+            width: 100%;
+            background-color: #e53935;
+            padding: 0.2%;
+            color: #FFF;
+        }
+
+        .fa {
+            padding: 20px;
+            font-size: 30px;
+            color: #FFF;
+        }
+
+
+  </style>
+
+<body class="backG">
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="homepage_logged.html"><img src="img/logo.png"></a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-left">
+                    <li class="active"><a href="homepage_logged.html">Home</a></li>
+                    <li><a href="route.html">Percursos</a></li>
+                    <li><a href="ranking.html">Ranking</a></li>
+                    <li><a href="#ourFooter">Sobre Nós</a></li>
+
+                </ul>
+                <li class="nav navbar-nav navbar-right nav-item dropdown dropleft">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="loginPainel" role="button"
+                        href="#"><img class="img_profile" id="profilePic"></a>
+                    <div class="dropdown-menu dropdownB" aria-labelledby="loginPainel">
+                        <a id="user" class="dropdown-item" style="text-decoration: none" style="color: black"></a>
+                        <div></div>
+                        <a class="dropdown-item letters" style="text-decoration: none" href="https://oofaround.appspot.com/profile.html"
+                            role="button">Perfil</a>
+                        <div></div>
+                        <a class="dropdown-item letters" style="text-decoration: none" href="https://oofaround.appspot.com/settings.html"
+                            role="button">Definições</a>
+                        <div></div>
+                        <a class="dropdown-item letters" style="text-decoration: none" href="https://oofaround.appspot.com/" role="button"
+                            id="logout">Terminar sessão</a>
+                    </div>
+                </li>
+            </div>
+        </div>
+    </nav>
+<br><br><br><br><br><br>
+
+<div class="container">
+    <!-- Top to bottom -->
+
+    <div class="row">
+    <div class="col-md-6">
+   
+      <!-- normal -->
+      <div class="ih-item circle effect20 top_to_bottom"><a href="#">
+          <div class="img"><img src="img/ui.jpg" alt="img"></div>
+          <div class="info">
+            <div class="info-back">
+              <h3>NOVO PERCURSO</h3>
+              <p><button class="btn btn-light" onclick="location.href = 'create_route.html';">CRIAR</button></p>
+            </div>
+          </div></a></div>
+      <!-- end normal -->
+   
+    </div>
+    <div class="col-md-6">
+   
+      <!-- colored -->
+      <div class="ih-item circle colored effect20 top_to_bottom"><a href="#">
+          <div class="img"><img src="img/interest.jpg" alt="img"></div>
+          <div class="info">
+            <div class="info-back">
+              <h3>PONTOS DE INTERESSE</h3>
+              <p><button class="btn btn-light">CONHECER</button></p>
+            </div>
+          </div></a></div>
+      <!-- end colored -->
+   
+    </div>
+  </div>
+  <!-- end Top to bottom -->
+  
+  <br><br><br><br>
+   
+  <!-- Bottom to top -->
+  <div class="row">
+    <div class="col-md-6">
+   
+      <!-- normal -->
+      <div class="ih-item circle effect20 bottom_to_top"><a href="#">
+          <div class="img"><img src="img/list.jpg" alt="img"></div>
+          <div class="info">
+            <div class="info-back">
+              <h3>PERCURSOS CRIADOS</h3>
+              <p><button class="btn btn-light">LISTAR</button></p>
+            </div>
+          </div></a></div>
+      <!-- end normal -->
+   
+    </div>
+    <div class="col-md-6">
+   
+      <!-- colored -->
+      <div class="ih-item circle colored effect20 bottom_to_top"><a href="#">
+          <div class="img"><img src="img/delete.jpg" alt="img"></div>
+          <div class="info">
+            <div class="info-back">
+              <h3>APAGAR PERCURSO</h3>
+              <p><button class="btn btn-light">APAGAR</button></p>
+            </div>
+          </div></a></div>
+      <!-- end colored -->
+   
+    </div>
+  </div>
+  <!-- end Bottom to top -->
+
+</div>
+
+<br><br><br><br>
+
+
+
+    <footer id="ourFooter" class="container-fluid text-center">
+        <div class="row">
+            <div class="col-md-6">
+                <img class="uh" src="img/equipa.png">
+            </div>
+            <div class="col-md-4">
+                <h3>SIGAM-NOS NAS REDES</h3>
+                <br>
+                <a href="#" class="fa fa-facebook"></a>
+                <a href="#" class="fa fa-twitter"></a>
+                <a href="#" class="fa fa-instagram"></a>
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+</html>
